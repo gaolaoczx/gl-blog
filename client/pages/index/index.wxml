@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="index-box">
+  <view class="index-tab">
+    <view class="index-tab-item {{currentTab==0?'active':''}}" data-current='0' bindtap="clickTab" >热门</view>
+    <view class="index-tab-item {{currentTab==1?'active':''}}" data-current='1' bindtap="clickTab" >关注</view>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" class="swiper-box">
+    <swiper-item class="swiper-items">
+      <feedlist class="feedlist" wx:if="{{feedlist.length > 0}}" list="{{feedlist}}" bind:top="onTop" bind:bottom="onBottom"></feedlist>
+    </swiper-item>
+
+    <swiper-item  class="swiper-items">
+      <view>关注</view>
+    </swiper-item>
+
+  </swiper>
+</view>

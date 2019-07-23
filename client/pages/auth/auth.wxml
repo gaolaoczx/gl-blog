@@ -1,0 +1,5 @@
+
+<view class="auth-box">
+  <view class="auth-text">您未授权登录</view>
+  <button class="auth-button" type="primary" open-type="getUserInfo" bindgetuserinfo="doAuth">授权</button>
+</view> 

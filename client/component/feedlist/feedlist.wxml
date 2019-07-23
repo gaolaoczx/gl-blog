@@ -1,0 +1,5 @@
+<!--component/feedlist/feedlist.wxml-->
+<!-- <text>component/feedlist/feedlist.wxml</text> -->
+<scroll-view scroll-y bindscrolltoupper="onTop" bindscrolltolower="onBottom" class="feedlist">
+  <feeditem wx:for="{{list}}" wx:key="{{item.id}}" feeddata="{{item}}" />
+</scroll-view>

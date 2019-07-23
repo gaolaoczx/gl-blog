@@ -1,0 +1,22 @@
+<!--component/feeditem/feeditem.wxml-->
+<!-- <text>component/feeditem/feeditem.wxml</text> -->
+<view class="scroll-view-item">
+  <view class="avatar">
+    <image src="{{feeddata.user.avatar}}" mode="aspectFit" class="avatar-img"></image>
+  </view>
+  <view class="text">
+    <view class="userinfo">
+      <view class="username">
+        {{feeddata.user.nickname}}
+        <text class="uidspan">@u{{feeddata.user.id}}</text>
+      </view>
+      <view class="pubtime">{{feeddata.creat_at}}</view>
+    </view>
+    <view class="content">{{feeddata.content}}</view>
+    <view class="actionbar">
+      <image src="/images/retweet.png" mode="aspectFit" class="action-icon" ></image>
+      转发
+    </view>
+  </view>
+</view>
+<!-- {{feeddata.content}}123 -->

@@ -1,0 +1,14 @@
+/* pages/auth/auth.wxss */
+
+.auth-box
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.auth-text
+{
+  margin-bottom: 10px;
+}

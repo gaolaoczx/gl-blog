@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/auth/auth",
+    "pages/logs/logs",
+    "pages/account/account",
+    "pages/publish/publish",
+    "pages/msg/msg"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "iconPath": "images/pencil.png",
+        "selectedIconPath": "images/pencil_active.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/msg/msg",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message_active.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_active.png",
+        "text": "账户"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "miniprogram_npm/vant-weapp/button",
+    "van-icon": "miniprogram_npm/vant-weapp/icon",
+    "feedlist": "component/feedlist/feedlist",
+    "feeditem": "component/feeditem/feeditem"
+  },
+  "sitemapLocation": "sitemap.json"
+}

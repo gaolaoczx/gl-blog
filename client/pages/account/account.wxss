@@ -1,0 +1,68 @@
+/* pages/account/account.wxss */
+.accout-box
+{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.user-box
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-box-avartar
+{
+  max-width: 200px;
+  max-height: 200px;
+
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 5px;
+  border: 1px solid #09bb07;
+}
+
+.user-box-name
+{
+  color: #09bb07;
+}
+
+.accout-menu
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.accout-menu-item
+{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #999;
+  border-top: 1px solid #eee;
+  /* margin-top: 2px; */
+}
+
+.accout-menu-item:last-child
+{
+  border-bottom: 1px solid #eee;
+}
+
+.accout-menu-item-text
+{
+  margin-left: 5px;
+}
+
+.accout-menu-item-icon
+{
+  max-width: 20px;
+  max-height: 20px;
+  margin-right: 5px;
+}

@@ -1,0 +1,6 @@
+/* component/feedlist/feedlist.wxss */
+
+.feedlist
+{
+  height: 100%;
+}

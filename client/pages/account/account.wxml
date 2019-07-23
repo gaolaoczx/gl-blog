@@ -1,0 +1,15 @@
+
+<view class="accout-box">
+  <view class="user-box">
+    <view class="user-box-avartar"><open-data type="userAvatarUrl" ></open-data></view>
+    <view class="user-box-name"><open-data type="userNickName" ></open-data></view>
+  </view>
+
+  <view class="accout-menu">
+    <view class="accout-menu-item" bindtap="info" >
+      <view class="accout-menu-item-text">关于</view>
+      <image class="accout-menu-item-icon" src="/images/circle-right.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+</view>

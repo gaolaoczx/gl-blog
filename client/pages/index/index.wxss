@@ -1,0 +1,42 @@
+/**index.wxss**/
+.index-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 2px solid #09bb07;
+  height: 30px;
+  /* line-height: 30px; */
+}
+
+.index-tab-item
+{
+  padding: 5px;
+  /* font-size:10px;  */
+}
+
+.active
+{
+  color: #09bb07;
+  border-bottom: 2px solid #09bb07;
+}
+
+.swiper-box
+/* .swiper-items */
+{
+  text-align: center;
+  /* height: 800px; */
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.feedlist
+{
+  height: calc( 100vh - 30px );
+  /* background-color: goldenrod; */
+}
+
+.feedlist-item
+{
+  height: 100px;
+  border-bottom: 1px solid #eee;
+}
