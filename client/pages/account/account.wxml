@@ -8,7 +8,7 @@
   <view class="accout-menu">
     <view class="accout-menu-item" bindtap="info" >
       <view class="accout-menu-item-text">关于</view>
-      <image class="accout-menu-item-icon" src="/images/circle-right.png" mode="aspectFit"></image>
+      <image class="accout-menu-item-icon" src="/images/right.png" mode="aspectFit"></image>
     </view>
   </view>
 

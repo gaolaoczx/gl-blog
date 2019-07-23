@@ -23,8 +23,8 @@
       },
       {
         "pagePath": "pages/publish/publish",
-        "iconPath": "images/pencil.png",
-        "selectedIconPath": "images/pencil_active.png",
+        "iconPath": "images/edit.png",
+        "selectedIconPath": "images/edit_active.png",
         "text": "发布"
       },
       {

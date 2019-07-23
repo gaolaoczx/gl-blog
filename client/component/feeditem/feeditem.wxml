@@ -14,7 +14,7 @@
     </view>
     <view class="content">{{feeddata.content}}</view>
     <view class="actionbar">
-      <image src="/images/retweet.png" mode="aspectFit" class="action-icon" ></image>
+      <image src="/images/forward.png" mode="aspectFit" class="action-icon" ></image>
       转发
     </view>
   </view>

@@ -36,8 +36,9 @@
 
 .username
 {
-  color: #09bb07;
-  font-size: 16px;
+  /* color: #09bb07; */
+  font-size: 15px;
+  /* font-weight: 100px; */
   /* padding-left: 5px; */
 }
 
@@ -63,7 +64,7 @@
 
 .action-icon
 {
-  width: 20px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   margin-right: 3px;
 }
