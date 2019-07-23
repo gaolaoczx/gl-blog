@@ -103,7 +103,7 @@ class LazyphpController
     {
         // token_login();
 
-        if( $feeds = db()->getData("SELECT * FROM `feed` ORDER BY `creat_at` DESC LIMIT 5")->toArray() )
+        if( $feeds = db()->getData("SELECT * FROM `feed` ORDER BY `id` DESC LIMIT 5")->toArray() )
         {
             foreach( $feeds as $feed )
             {
