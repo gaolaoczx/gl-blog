@@ -225,6 +225,18 @@ $GLOBALS['meta'] = array (
         'ApiRoute' => '(name="/feed_list")',
       ),
     ),
+    'Params' => 
+    array (
+      0 => 
+      array (
+        'name' => 'since',
+        'filters' => 
+        array (
+          0 => 'intval',
+        ),
+        'cnname' => 'sinceid',
+      ),
+    ),
     'Return' => 
     array (
       0 => 
@@ -233,7 +245,14 @@ $GLOBALS['meta'] = array (
         'sample' => '{\'code\': 0,\'message\': \'success\'}',
       ),
     ),
-    'binding' => false,
+    'binding' => 
+    array (
+      'since' => 
+      array (
+        'name' => 'since',
+        'default' => 0,
+      ),
+    ),
     'route' => 
     array (
       0 => 

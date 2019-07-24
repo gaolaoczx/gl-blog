@@ -6,24 +6,33 @@ Page({
   data:
   {
     currentTab:0,
+    sinceId:0,
     feedlist:[]
   },
   onLoad()
   {
     if (getApp().globalData.token) getApp().doRegister();
-    setTimeout(() => { this.loadList()} , 1000);
+    setTimeout(() => { this.loadList(0)} , 1000);
   },
-  loadList()
+  loadList(since=0)
   {
     wx.request({
       url: getApp().globalData.hostUrl+'/feed_list',
-      data: { 'token': getApp().globalData.token},
+      data: { 'token': getApp().globalData.token, 'since':this.data.sinceId},
       success:ret=>
       {
         console.log(ret);
+        console.log(since)
         if(ret.data && ret.data.data && ret.data.data.length > 0)
         {
-          this.setData({'feedlist': ret.data.data});
+          if(since == 0)
+          {
+            this.setData({ 'feedlist': ret.data.data, sinceId: parseInt(ret.data.data[ret.data.data.length - 1].id, 10) });
+          }
+          else
+          {
+            this.setData({ 'feedlist': this.data.feedlist.concat(ret.data.data), sinceId: parseInt(ret.data.data[ret.data.data.length - 1].id,10 )});
+          }
         }
       }
     })
@@ -50,18 +59,18 @@ Page({
   onTop(e) 
   {
     wx.showToast({
-      title: '已到顶部',
+      title: '正在更新',
       icon:'none'
     });
-    this.loadList();
+    this.loadList(0);
   },
   onBottom(e) 
   {
     wx.showToast({
-      title: '已到底部',
+      title: '正在载入数据',
       icon: 'none'
     })
-
+    this.loadList(this.data.sinceId);
   },
   getUserInfo() 
   {

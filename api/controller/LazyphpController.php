@@ -97,13 +97,23 @@ class LazyphpController
     /**
      * @ApiDescription(section="feed_list", description="信息列表")
      * @ApiLazyRoute(uri="/feed_list",method="GET|POST")
+     * @ApiParams(name="since", type="id", nullable=false, description="since id", check="intval", cnname="sinceid")
      * @ApiReturn(type="object", sample="{'code': 0,'message': 'success'}")
      */
-    public function feed_list(  )
+    public function feed_list( $since = 0 )
     {
         // token_login();
+        $limit = 5;
+        if( $since == 0 )
+        {
+            $sql = "SELECT * FROM `feed` ORDER BY `id` DESC LIMIT $limit ";
+        }
+        else
+        {
+            $sql = "SELECT * FROM `feed` WHERE `id` < $since ORDER BY `id` DESC LIMIT $limit ";
+        }
 
-        if( $feeds = db()->getData("SELECT * FROM `feed` ORDER BY `id` DESC LIMIT 5")->toArray() )
+        if( $feeds = db()->getData($sql)->toArray() )
         {
             foreach( $feeds as $feed )
             {
