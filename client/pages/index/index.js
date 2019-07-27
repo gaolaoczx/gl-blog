@@ -1,4 +1,6 @@
 //index.js
+import regeneratorRuntime from '../../utils/wxPromise.min.js';
+
 //获取应用实例
 const app = getApp()
 
@@ -6,36 +8,13 @@ Page({
   data:
   {
     currentTab:0,
-    sinceId:0,
-    feedlist:[]
+    urlList: getApp().globalData.hostUrl +'/feed_list',
+    urlMyList: getApp().globalData.hostUrl +'/feed_mylist',
   },
-  onLoad()
+  async onReady()
   {
-    if (getApp().globalData.token) getApp().doRegister();
-    setTimeout(() => { this.loadList(0)} , 1000);
-  },
-  loadList(since=0)
-  {
-    wx.request({
-      url: getApp().globalData.hostUrl+'/feed_list',
-      data: { 'token': getApp().globalData.token, 'since':this.data.sinceId},
-      success:ret=>
-      {
-        console.log(ret);
-        console.log(since)
-        if(ret.data && ret.data.data && ret.data.data.length > 0)
-        {
-          if(since == 0)
-          {
-            this.setData({ 'feedlist': ret.data.data, sinceId: parseInt(ret.data.data[ret.data.data.length - 1].id, 10) });
-          }
-          else
-          {
-            this.setData({ 'feedlist': this.data.feedlist.concat(ret.data.data), sinceId: parseInt(ret.data.data[ret.data.data.length - 1].id,10 )});
-          }
-        }
-      }
-    })
+    // console.log("index onReady");
+    // await app.code2token();
   },
   clickTab(e)
   {
@@ -55,22 +34,6 @@ Page({
     // console.log('swiper');
     // console.log(e);
     this.setData({ currentTab: e.detail.current });
-  },
-  onTop(e) 
-  {
-    wx.showToast({
-      title: '正在更新',
-      icon:'none'
-    });
-    this.loadList(0);
-  },
-  onBottom(e) 
-  {
-    wx.showToast({
-      title: '正在载入数据',
-      icon: 'none'
-    })
-    this.loadList(this.data.sinceId);
   },
   getUserInfo() 
   {

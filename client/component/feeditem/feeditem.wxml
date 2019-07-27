@@ -10,7 +10,8 @@
         {{feeddata.user.nickname}}
         <text class="uidspan">@u{{feeddata.user.id}}</text>
       </view>
-      <view class="pubtime">{{feeddata.creat_at}}</view>
+      <!-- <view class="pubtime">{{feeddata.creat_at}}</view> -->
+      <view class="pubtime">{{time}}</view>
     </view>
     <view class="content">{{feeddata.content}}</view>
     <view class="actionbar">

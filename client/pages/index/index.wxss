@@ -25,13 +25,18 @@
 {
   text-align: center;
   /* height: 800px; */
-  height: 100vh;
+  height: calc( 100vh - 32px );
   overflow-y: hidden;
+}
+
+swiper-items
+{
+  overflow-y: scroll;
 }
 
 .feedlist
 {
-  height: calc( 100vh - 30px );
+  /* height: calc( 100vh - 32px ); */
   /* background-color: goldenrod; */
 }
 

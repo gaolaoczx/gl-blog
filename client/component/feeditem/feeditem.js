@@ -1,5 +1,5 @@
 // component/feeditem/feeditem.js
-// import { format , render, cancel, register } from 'timeago.js';
+import { format, render, cancel, register } from 'timeago.min.js';
 
 Component({
   /**
@@ -19,7 +19,15 @@ Component({
   lifetimes: {
     attached() {
       console.log("in feeditem");
-      // this.setData({ 'time':format(this.data.feeddata.creat_at,'zh_CN') });
+      // console.log(this.data.feeddata.creat_at);
+      this.setData({ 'time':format(this.data.feeddata.creat_at,'zh_CN') });
+      // console.log(this.data.time);
+    },
+    ready() {
+      // console.log('ready');
+    },
+    detached() {
+      // console.log('detached');
       // console.log(this.data.feeddata);
     }
   },

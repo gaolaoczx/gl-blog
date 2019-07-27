@@ -9,6 +9,7 @@
   padding-top: 5px;
   padding-bottom: 8px;
   border-bottom: 1px solid #eee;
+  margin-top: 1px; /* 当 scroll-view 组件的第一个直接子元素设置了 margin-top 时即使 scroll-view 只有一行也可以滚动 */
 }
 
 .avatar-img

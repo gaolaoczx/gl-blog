@@ -1,38 +1,40 @@
 //app.js
-App({
-  onLaunch: function () {
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          url: this.globalData.hostUrl,
-          data: {'code':res.code},
-          success: (ret) => 
-          {
-            // console.log(ret);
-            if(ret.data)
-            {
-              this.globalData.token = ret.data.data.token;
+import regeneratorRuntime from '/utils/wxPromise.min.js';
+import '/utils/wxPromise.min.js';
 
-              if( ret.data.data.guid < 1)
-              {
-                console.log("用户未注册");
-                this.doRegister();
-              }
-              else
-              {
-                console.log("用户已注册");
-                // console.log(ret.data.data.guid);
-                this.globalData.guid = ret.data.data.guid;
-              }
+App({
+  async code2token() {
+    console.log("code2token");
+    if (this.globalData.token) return true;
+    // 登录
+    await wx.pro.login().then(
+      res=>{
+        console.log(res.code);
+        return wx.pro.request(
+          {
+            url: this.globalData.hostUrl,
+            data: { 'code': res.code }
+          }
+        );
+      }).then(
+        async ret=>{
+          // console.log(ret);
+          if (ret.data) {
+            this.globalData.token = ret.data.data.token;
+
+            if (ret.data.data.guid < 1) {
+              console.log("用户未注册");
+              await this.doRegister();
+            }
+            else {
+              console.log("用户已注册");
+              // console.log(ret.data.data.guid);
+              this.globalData.guid = ret.data.data.guid;
             }
           }
-        })
-      }
-    })
-  },
-  doRegister()
+        });
+    },
+ async doRegister()
   {
     if ( this.globalData.guid < 1)
     {
@@ -57,16 +59,17 @@ App({
       })
     }
   },
-  saveUserRemote(userInfo,goback = true)
+  async saveUserRemote(userInfo,goback = true)
   {
     console.log("保存用户信息");
     // console.log(userInfo);
-    wx.request({
+    await wx.pro.request({
       url: this.globalData.hostUrl+'/reg',
       data: { 'token': this.globalData.token, 'nickName': userInfo.nickName, 'avartar': userInfo.avatarUrl},
       method:'POST',
-      header:{'content-type':'application/x-www-form-urlencoded'},
-      success:(ret)=>{
+      header:{'content-type':'application/x-www-form-urlencoded'}
+      }).then(ret=>
+      {
         // console.log(ret);
         if ( ret.data.data && ret.data.data.guid && ret.data.data.guid > 0 )
         {
@@ -76,8 +79,7 @@ App({
           if( goback ) wx.navigateBack();
         }
       }
-    })
-
+    );
   },
   globalData: {
     userInfo: null,

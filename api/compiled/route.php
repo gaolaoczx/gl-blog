@@ -262,6 +262,62 @@ $GLOBALS['meta'] = array (
       ),
     ),
   ),
+  '72736f0ad6f8a8219bfd173c83d0a550' => 
+  array (
+    'Description' => 
+    array (
+      0 => 
+      array (
+        'section' => 'feed_mylist',
+        'description' => '关注的信息列表',
+      ),
+    ),
+    'LazyRoute' => 
+    array (
+      0 => 
+      array (
+        'route' => 'GET|POST /feed_mylist',
+        'ApiMethod' => '(type="GET|POST")',
+        'ApiRoute' => '(name="/feed_mylist")',
+      ),
+    ),
+    'Params' => 
+    array (
+      0 => 
+      array (
+        'name' => 'since',
+        'filters' => 
+        array (
+          0 => 'intval',
+        ),
+        'cnname' => 'sinceid',
+      ),
+    ),
+    'Return' => 
+    array (
+      0 => 
+      array (
+        'type' => 'object',
+        'sample' => '{\'code\': 0,\'message\': \'success\'}',
+      ),
+    ),
+    'binding' => 
+    array (
+      'since' => 
+      array (
+        'name' => 'since',
+        'default' => 0,
+      ),
+    ),
+    'route' => 
+    array (
+      0 => 
+      array (
+        'uri' => 'GET|POST /feed_mylist',
+        'params' => false,
+      ),
+    ),
+  ),
   'eb12852dde30c86f2681120ef5001954' => 
   array (
     'Description' => 
@@ -337,6 +393,7 @@ $app->route('GET /info',array( 'Lazyphp\Controller\LazyphpController','info'));
 $app->route('GET|POST /reg',array( 'Lazyphp\Controller\LazyphpController','reg'));
 $app->route('GET|POST /feed_pbulish',array( 'Lazyphp\Controller\LazyphpController','feed_pbulish'));
 $app->route('GET|POST /feed_list',array( 'Lazyphp\Controller\LazyphpController','feed_list'));
+$app->route('GET|POST /feed_mylist',array( 'Lazyphp\Controller\LazyphpController','feed_mylist'));
 $app->route('GET /demo/times',array( 'Lazyphp\Controller\LazyphpController','demo'));
 $app->run();
 }

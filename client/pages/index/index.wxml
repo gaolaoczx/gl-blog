@@ -7,12 +7,11 @@
 
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" class="swiper-box">
     <swiper-item class="swiper-items">
-      <feedlist class="feedlist" wx:if="{{feedlist.length > 0}}" list="{{feedlist}}" bind:top="onTop" bind:bottom="onBottom"></feedlist>
+      <feedlist class="feedlist" url="{{urlList}}"></feedlist>
     </swiper-item>
 
     <swiper-item  class="swiper-items">
-      <view>关注</view>
+      <feedlist class="feedlist" url="{{urlMyList}}"></feedlist>
     </swiper-item>
-
   </swiper>
 </view>

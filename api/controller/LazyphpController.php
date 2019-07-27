@@ -102,8 +102,61 @@ class LazyphpController
      */
     public function feed_list( $since = 0 )
     {
-        // token_login();
+        token_login();
+
         $limit = 5;
+        if( $since == 0 )
+        {
+            $sql = "SELECT * FROM `feed` ORDER BY `id` DESC LIMIT $limit ";
+        }
+        else
+        {
+            $sql = "SELECT * FROM `feed` WHERE `id` < $since ORDER BY `id` DESC LIMIT $limit ";
+        }
+
+        if( $feeds = db()->getData($sql)->toArray() )
+        {
+            foreach( $feeds as $feed )
+            {
+                $uids[] = $feed['author_uid'];
+            }
+
+            if( isset($uids))
+            {
+                $uids = array_unique($uids);
+                if( $users = db()->getData("SELECT * FROM `user` WHERE `id` IN (".join(',',$uids).")")->toArray())
+                {
+                    foreach( $users as $user )
+                    {
+                        $user_array[$user['id']] = $user;
+                    }
+                }
+            }
+
+            if( isset($user_array) && count($user_array) > 0)
+            {
+                foreach($feeds as $key=>$feed)
+                {
+                    $feeds[$key]['user'] = $user_array[$feed['author_uid']];
+                }
+            }
+        }
+
+        return send_result($feeds);
+        
+    }
+
+    /**
+     * @ApiDescription(section="feed_mylist", description="关注的信息列表")
+     * @ApiLazyRoute(uri="/feed_mylist",method="GET|POST")
+     * @ApiParams(name="since", type="id", nullable=false, description="since id", check="intval", cnname="sinceid")
+     * @ApiReturn(type="object", sample="{'code': 0,'message': 'success'}")
+     */
+    public function feed_mylist( $since = 0 )
+    {
+        token_login();
+        
+        $limit = 3;
         if( $since == 0 )
         {
             $sql = "SELECT * FROM `feed` ORDER BY `id` DESC LIMIT $limit ";
