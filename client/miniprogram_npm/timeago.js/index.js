@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { __MODS__[modId].m.exports.__proto__ = m.exports.__proto__; Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; Object.defineProperty(m.exports, k, { set: function(val) { __MODS__[modId].m.exports[k] = val; }, get: function() { return __MODS__[modId].m.exports[k]; } }); }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1564218028876, function(require, module, exports) {
+__DEFINE__(1564218028884, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -48,8 +48,8 @@ var _locales = require("./locales");
  */
 var version = "4.0.0-beta.2";
 exports.version = version;
-}, function(modId) {var map = {"./format":1564218028877,"./realtime":1564218028880,"./locales":1564218028879}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1564218028877, function(require, module, exports) {
+}, function(modId) {var map = {"./format":1564218028885,"./realtime":1564218028888,"./locales":1564218028887}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1564218028885, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -69,8 +69,8 @@ var format = function format(date, locale, nowDate) {
 };
 
 exports.format = format;
-}, function(modId) { var map = {"./utils/date":1564218028878,"./locales.js":1564218028879}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1564218028878, function(require, module, exports) {
+}, function(modId) { var map = {"./utils/date":1564218028886,"./locales.js":1564218028887}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1564218028886, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -182,7 +182,7 @@ var nextInterval = function nextInterval(diff) {
 
 exports.nextInterval = nextInterval;
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1564218028879, function(require, module, exports) {
+__DEFINE__(1564218028887, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -243,7 +243,7 @@ var getLocale = function getLocale(locale) {
 
 exports.getLocale = getLocale;
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1564218028880, function(require, module, exports) {
+__DEFINE__(1564218028888, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -308,8 +308,8 @@ var render = function render(nodes, locale, nowDate) {
 };
 
 exports.render = render;
-}, function(modId) { var map = {"./utils/dom":1564218028881,"./utils/date":1564218028878,"./locales":1564218028879}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1564218028881, function(require, module, exports) {
+}, function(modId) { var map = {"./utils/dom":1564218028889,"./utils/date":1564218028886,"./locales":1564218028887}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1564218028889, function(require, module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -363,6 +363,6 @@ var getTimerId = function getTimerId(node) {
 
 exports.getTimerId = getTimerId;
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1564218028876);
+return __REQUIRE__(1564218028884);
 })()
 //# sourceMappingURL=index.js.map

@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/account/account",
     "pages/publish/publish",
-    "pages/msg/msg"
+    "pages/msg/msg",
+    "pages/update/update"
   ],
   "window": {
     "backgroundTextStyle": "light",

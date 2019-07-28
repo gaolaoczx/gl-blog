@@ -25,6 +25,20 @@ Component({
       console.log("in feedlist");
       await getApp().code2token();
       this.loadList(0);
+
+      getApp().globalData.event.on('feedlistupdate', e=>{
+        console.log(e);
+        if( e.feed && e.feed.id > 0)
+        {
+          const feed = e.feed;
+          let newlist = this.data.feedlist;
+          newlist.forEach((item, i) =>{
+            if(item.id == feed.id)
+              newlist[i]['content'] = feed.content;
+          });
+          this.setData({'feedlist':newlist});
+        }
+      });
     }
   },
   /**
@@ -94,7 +108,7 @@ Component({
             console.log(ret);
             if(ret.data.code == 0)
             {
-              //删除成功后清空信息流，若只过滤被删除的id，未卸载对应组件导致会重新渲染该内容导致报找不到内容的错误
+              //删除成功后清空信息流，若只单纯过滤被删除的id，未卸载对应组件，在重新渲染该内容时会报找不到内容的错误
               const feeds = this.data.feedlist;
               this.setData({
                 'show': false,
@@ -109,7 +123,13 @@ Component({
           }
         )
       }
-
+      if (e.detail.action == "modify")
+      {
+        this.setData({'show':false});
+        wx.navigateTo({
+          url: '/pages/update/update?fid='+e.detail.fid
+        })
+      }
     }
   }
 })

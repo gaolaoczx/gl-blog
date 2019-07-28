@@ -373,6 +373,129 @@ $GLOBALS['meta'] = array (
       ),
     ),
   ),
+  '8ec410a088472a2c77eefd09a3a88bd7' => 
+  array (
+    'Description' => 
+    array (
+      0 => 
+      array (
+        'section' => 'feed_detail',
+        'description' => '获取单条feed',
+      ),
+    ),
+    'LazyRoute' => 
+    array (
+      0 => 
+      array (
+        'route' => 'GET|POST /feed_detail',
+        'ApiMethod' => '(type="GET|POST")',
+        'ApiRoute' => '(name="/feed_detail")',
+      ),
+    ),
+    'Params' => 
+    array (
+      0 => 
+      array (
+        'name' => 'fid',
+        'filters' => 
+        array (
+          0 => 'check_not_zero',
+        ),
+        'cnname' => 'fid',
+      ),
+    ),
+    'Return' => 
+    array (
+      0 => 
+      array (
+        'type' => 'object',
+        'sample' => '{\'code\': 0,\'message\': \'success\'}',
+      ),
+    ),
+    'binding' => 
+    array (
+      'fid' => 
+      array (
+        'name' => 'fid',
+      ),
+    ),
+    'route' => 
+    array (
+      0 => 
+      array (
+        'uri' => 'GET|POST /feed_detail',
+        'params' => false,
+      ),
+    ),
+  ),
+  '6175701970dd76ac3637a7d81f1e91cd' => 
+  array (
+    'Description' => 
+    array (
+      0 => 
+      array (
+        'section' => 'feed_modify',
+        'description' => '修改feed内容',
+      ),
+    ),
+    'LazyRoute' => 
+    array (
+      0 => 
+      array (
+        'route' => 'GET|POST /feed_modify',
+        'ApiMethod' => '(type="GET|POST")',
+        'ApiRoute' => '(name="/feed_modify")',
+      ),
+    ),
+    'Params' => 
+    array (
+      0 => 
+      array (
+        'name' => 'fid',
+        'filters' => 
+        array (
+          0 => 'check_not_zero',
+        ),
+        'cnname' => 'fid',
+      ),
+      1 => 
+      array (
+        'name' => 'content',
+        'filters' => 
+        array (
+          0 => 'check_not_empty',
+        ),
+        'cnname' => '发布内容',
+      ),
+    ),
+    'Return' => 
+    array (
+      0 => 
+      array (
+        'type' => 'object',
+        'sample' => '{\'code\': 0,\'message\': \'success\'}',
+      ),
+    ),
+    'binding' => 
+    array (
+      'fid' => 
+      array (
+        'name' => 'fid',
+      ),
+      'content' => 
+      array (
+        'name' => 'content',
+      ),
+    ),
+    'route' => 
+    array (
+      0 => 
+      array (
+        'uri' => 'GET|POST /feed_modify',
+        'params' => false,
+      ),
+    ),
+  ),
   'eb12852dde30c86f2681120ef5001954' => 
   array (
     'Description' => 
@@ -450,6 +573,8 @@ $app->route('GET|POST /feed_pbulish',array( 'Lazyphp\Controller\LazyphpControlle
 $app->route('GET|POST /feed_list',array( 'Lazyphp\Controller\LazyphpController','feed_list'));
 $app->route('GET|POST /feed_mylist',array( 'Lazyphp\Controller\LazyphpController','feed_mylist'));
 $app->route('GET|POST /feed_del',array( 'Lazyphp\Controller\LazyphpController','feed_del'));
+$app->route('GET|POST /feed_detail',array( 'Lazyphp\Controller\LazyphpController','feed_detail'));
+$app->route('GET|POST /feed_modify',array( 'Lazyphp\Controller\LazyphpController','feed_modify'));
 $app->route('GET /demo/times',array( 'Lazyphp\Controller\LazyphpController','demo'));
 $app->run();
 }

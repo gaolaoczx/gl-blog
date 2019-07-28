@@ -1,8 +1,13 @@
 //app.js
 import regeneratorRuntime from '/utils/wxPromise.min.js';
 import '/utils/wxPromise.min.js';
+import EventEmitter from 'eventemitter3'
 
 App({
+  onLaunch()
+  {
+    this.globalData.event = new EventEmitter();
+  },
   async code2token() {
     console.log("code2token");
     if (this.globalData.token) return true;
@@ -86,5 +91,6 @@ App({
     hostUrl: 'http://localhost:8000',
     token:'',
     guid:0,
+    event:null
   }
 })

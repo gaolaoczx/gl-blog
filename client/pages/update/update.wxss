@@ -1,0 +1,20 @@
+
+.publish-box
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-text
+{
+  min-height: 100px;
+  border: 1px solid #eee;
+  margin: 5px;
+  padding: 5px;
+}
+
+.publish-button
+{
+  margin-right: 5px;
+  float: right;
+}

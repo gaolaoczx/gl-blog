@@ -221,6 +221,52 @@ class LazyphpController
     }
 
     /**
+     * @ApiDescription(section="feed_detail", description="获取单条feed")
+     * @ApiLazyRoute(uri="/feed_detail",method="GET|POST")
+     * @ApiParams(name="fid", type="id", nullable=false, description="feed id", check="check_not_zero", cnname="fid")
+     * @ApiReturn(type="object", sample="{'code': 0,'message': 'success'}")
+     */
+    public function feed_detail( $fid )
+    {
+        token_login();
+  
+        if( !$feed = table('feed')->getAllById($fid)->toLine())
+            lp_throw('ARGS','错误的feed id');
+
+        $sql = "SELECT * FROM `feed` WHERE `id`='".intval($fid)."' LIMIT 1";
+        db()->runSql( $sql );
+
+        return send_result($feed);
+    }
+
+    /**
+    * @ApiDescription(section="feed_modify", description="修改feed内容")
+    * @ApiLazyRoute(uri="/feed_modify",method="GET|POST")
+    * @ApiParams(name="fid", type="id", nullable=false, description="feed id", check="check_not_zero", cnname="fid")
+    * @ApiParams(name="content", type="string", nullable=false, description="content", check="check_not_empty", cnname="发布内容")
+    * @ApiReturn(type="object", sample="{'code': 0,'message': 'success'}")
+    */
+    public function feed_modify( $fid , $content)
+    {
+        token_login();
+
+        if( !$feed = table('feed')->getAllById($fid)->toLine())
+            lp_throw('ARGS','错误的feed id');
+
+        if( $feed['author_uid'] != $_SESSION['guid'] )
+            lp_throw('AUTH','只能修改自己的内容');
+
+        $sql = "UPDATE `feed` SET `content` = '".s($content)."' WHERE `id`='" .intval($fid)."' LIMIT 1";
+        // return send_result($sql);
+        db()->runSql($sql);
+
+        //防止数据库未更新，强制更新返回数据
+        $feed['content'] = $content;
+
+        return send_result($feed);
+    }
+
+    /**
      * Demo接口
      * @ApiDescription(section="Demo", description="乘法接口")
      * @ApiLazyRoute(uri="/demo/times",method="GET")
