@@ -3,9 +3,20 @@
 
 <block wx:if="{{feedlist.length > 0}}">
   <scroll-view scroll-y bindscrolltoupper="onTop" bindscrolltolower="onBottom" class="feedlist">
-    <feeditem wx:for="{{feedlist}}" wx:key="{{item.id}}" feeddata="{{item}}" />
+    <feeditem wx:for="{{feedlist}}" wx:key="{{item.id}}" feeddata="{{item}}" bind:menu="onMenu"/>
   </scroll-view>
 </block>
 <view  wx:elif="{{!feedlist}}" >
 加载中，请稍候...
+</view>
+
+<view class="menu">
+  <van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  cancel-text="取消"
+  bind:close="onClose"
+  bind:cancel="onClose"
+  bind:select="onSelect"
+/>
 </view>

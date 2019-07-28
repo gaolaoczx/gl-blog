@@ -199,6 +199,28 @@ class LazyphpController
     }
 
     /**
+     * @ApiDescription(section="feed_del", description="删除feed")
+     * @ApiLazyRoute(uri="/feed_del",method="GET|POST")
+     * @ApiParams(name="fid", type="id", nullable=false, description="feed id", check="check_not_zero", cnname="fid")
+     * @ApiReturn(type="object", sample="{'code': 0,'message': 'success'}")
+     */
+    public function feed_del( $fid )
+    {
+        token_login();
+  
+        if( !$feed = table('feed')->getAllById($fid)->toLine())
+            lp_throw('ARGS','错误的feed id');
+        
+        if( $feed['author_uid'] != $_SESSION['guid'] )
+            lp_throw('AUTH','只能删除自己的内容');
+
+        $sql = "DELETE FROM `feed` WHERE `id`='".intval($fid)."' LIMIT 1";
+        db()->runSql( $sql );
+
+        return send_result($feed);
+    }
+
+    /**
      * Demo接口
      * @ApiDescription(section="Demo", description="乘法接口")
      * @ApiLazyRoute(uri="/demo/times",method="GET")

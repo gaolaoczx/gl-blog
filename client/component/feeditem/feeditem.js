@@ -13,7 +13,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    feeddata: null
+    feeddata: null,
+    showMenu:false
   },
 
   lifetimes: {
@@ -22,6 +23,9 @@ Component({
       // console.log(this.data.feeddata.creat_at);
       this.setData({ 'time':format(this.data.feeddata.creat_at,'zh_CN') });
       // console.log(this.data.time);
+      // console.log(getApp().globalData.guid);
+      // console.log(this.data.feeddata.author_uid);
+      if (getApp().globalData.guid == this.data.feeddata.author_uid) this.setData({showMenu:true});
     },
     ready() {
       // console.log('ready');
@@ -35,6 +39,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onPullDown(e)
+    {
+      // console.log(e);
+      this.triggerEvent('menu', { 'fid': this.data.feeddata.id }, {}) 
+    }
   }
 })

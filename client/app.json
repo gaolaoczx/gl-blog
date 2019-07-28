@@ -42,8 +42,7 @@
     ]
   },
   "usingComponents": {
-    "van-button": "miniprogram_npm/vant-weapp/button",
-    "van-icon": "miniprogram_npm/vant-weapp/icon",
+    "van-action-sheet": "miniprogram_npm/vant-weapp/action-sheet/index",
     "feedlist": "component/feedlist/feedlist",
     "feeditem": "component/feeditem/feeditem"
   },

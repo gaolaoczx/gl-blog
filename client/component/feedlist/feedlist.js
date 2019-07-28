@@ -15,7 +15,9 @@ Component({
   data: {
     sinceId:0,
     feedlist:null,
-    url:''
+    url:'',
+    show:false,
+    actions:[]
   },
 
   lifetimes:{
@@ -64,6 +66,50 @@ Component({
         icon: 'none'
       })
       this.loadList(this.data.sinceId);
+    },
+    onMenu(e) {
+      console.log(e.detail.fid);
+      const fid = parseInt(e.detail.fid,10);
+      const action = [
+        {"name":"修改","action":"modify","fid":fid},
+        {"name":"删除","action":"del", "fid": fid}
+      ];
+
+      this.setData({'show':true,'actions':action});
+    },
+    onClose(e) {
+      // console.log(e);
+      this.setData({ 'show': false});
+    },
+    onSelect(e) {
+      console.log(e.detail);
+
+      if(e.detail.action == "del")
+      {
+        wx.pro.request({
+          url: getApp().globalData.hostUrl+'/feed_del',
+          data:{'token':getApp().globalData.token,'fid':e.detail.fid}
+        }).then(
+          ret=>{
+            console.log(ret);
+            if(ret.data.code == 0)
+            {
+              //删除成功后清空信息流，若只过滤被删除的id，未卸载对应组件导致会重新渲染该内容导致报找不到内容的错误
+              const feeds = this.data.feedlist;
+              this.setData({
+                'show': false,
+                'feedlist':{}
+              });
+              this.setData({
+                'feedlist': feeds.filter(
+                feed => feed.id != e.detail.fid)
+              });
+              console.log(ret.data);
+            }
+          }
+        )
+      }
+
     }
   }
 })
