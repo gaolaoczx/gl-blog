@@ -1,7 +1,7 @@
 
 <view class="publish-box">
   <form bindsubmit="publish" >
-    <textarea name="textarea" class="publish-text" auto-height placeholder="有什么新鲜事？" value="{{content}}" />
+    <view class="publish-text" ><textarea name="textarea" auto-height placeholder="有什么新鲜事？" value="{{content}}" /></view>
     <button type="primary" class="publish-button" form-type="submit" >发布</button>
   </form>
 </view>

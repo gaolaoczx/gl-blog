@@ -3,29 +3,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-bottom: 2px solid #09bb07;
-  height: 30px;
-  /* line-height: 30px; */
+  border-bottom: 3rpx solid #09bb07;
+  height: 72rpx;
 }
 
 .index-tab-item
 {
-  padding: 5px;
-  /* font-size:10px;  */
+  padding: 10rpx;
 }
 
 .active
 {
   color: #09bb07;
-  border-bottom: 2px solid #09bb07;
+  border-bottom: 6rpx solid #09bb07;
 }
 
 .swiper-box
-/* .swiper-items */
 {
   text-align: center;
-  /* height: 800px; */
-  height: calc( 100vh - 32px );
+  height: calc( 100vh - 78rpx );
   overflow-y: hidden;
 }
 
@@ -34,14 +30,8 @@ swiper-items
   overflow-y: scroll;
 }
 
-.feedlist
-{
-  /* height: calc( 100vh - 32px ); */
-  /* background-color: goldenrod; */
-}
-
 .feedlist-item
 {
-  height: 100px;
-  border-bottom: 1px solid #eee;
+  height: 300rpx;
+  border-bottom: 3rpx solid #eee;
 }

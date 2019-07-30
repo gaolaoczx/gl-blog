@@ -23,15 +23,11 @@ Component({
       // console.log(this.data.feeddata.creat_at);
       this.setData({ 'time':format(this.data.feeddata.creat_at,'zh_CN') });
       // console.log(this.data.time);
-      // console.log(getApp().globalData.guid);
-      // console.log(this.data.feeddata.author_uid);
       if (getApp().globalData.guid == this.data.feeddata.author_uid) this.setData({showMenu:true});
     },
     ready() {
-      // console.log('ready');
     },
     detached() {
-      // console.log('detached');
       // console.log(this.data.feeddata);
     }
   },

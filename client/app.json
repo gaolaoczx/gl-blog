@@ -29,12 +29,6 @@
         "text": "发布"
       },
       {
-        "pagePath": "pages/msg/msg",
-        "iconPath": "images/message.png",
-        "selectedIconPath": "images/message_active.png",
-        "text": "消息"
-      },
-      {
         "pagePath": "pages/account/account",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/user_active.png",

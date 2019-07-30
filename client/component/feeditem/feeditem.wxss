@@ -2,28 +2,26 @@
 
 .scroll-view-item
 {
-  /* height: 100%; */
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
-  padding: 5px;
-  padding-top: 5px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #eee;
-  margin-top: 1px; /* 当 scroll-view 组件的第一个直接子元素设置了 margin-top 时即使 scroll-view 只有一行也可以滚动 */
+  padding: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 15rpx;
+  border-bottom: 3rpx solid #eee;
+  margin-top: 1rpx; /* 当 scroll-view 组件的第一个直接子元素设置了 margin-top 时即使 scroll-view 只有一行也可以滚动 */
 }
 
 .avatar-img
 {
-  width: 40px;
-  height: 40px;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .text
 {
-  margin-left: 5px;
+  margin-left: 15rpx;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -46,41 +44,38 @@
 
 .downpull
 {
-  width: 16px;
-  height: 10px;
+  width: 45rpx;
+  height: 25rpx;
 }
 
 .username
 {
-  /* color: #09bb07; */
-  font-size: 15px;
-  /* font-weight: 100px; */
-  /* padding-left: 5px; */
+  font-size: 38rpx;
 }
 
 .uidspan,.pubtime
 {
-  font-size: 11px;
+  font-size: 30rpx;
   color: rgb(214, 211, 211);
 }
 
 .content
 {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
 }
 
 .actionbar
 {
   display: flex;
   align-items: center;
-  font-size: 11px;
+  font-size: 30rpx;
   color: rgb(214, 211, 211);
 }
 
 .action-icon
 {
-  width: 15px;
-  height: 15px;
-  margin-right: 3px;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
 }

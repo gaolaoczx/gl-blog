@@ -18,7 +18,6 @@ Page({
   },
   clickTab(e)
   {
-    // console.log('click');
     // console.log(e);
     if(this.data.currentTab === e.target.dataset.current)
     {
@@ -31,7 +30,6 @@ Page({
   },
   swiperTab(e) 
   {
-    // console.log('swiper');
     // console.log(e);
     this.setData({ currentTab: e.detail.current });
   },

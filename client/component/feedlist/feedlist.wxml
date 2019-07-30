@@ -1,5 +1,4 @@
 <!--component/feedlist/feedlist.wxml-->
-<!-- <text>component/feedlist/feedlist.wxml</text> -->
 
 <block wx:if="{{feedlist.length > 0}}">
   <scroll-view scroll-y bindscrolltoupper="onTop" bindscrolltolower="onBottom" class="feedlist">
